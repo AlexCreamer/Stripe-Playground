@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'allauth',
+    'allauth.account',
     'pinax.stripe',
 ]
 
@@ -123,5 +125,5 @@ STATIC_URL = '/static/'
 
 SITE_ID = 1
 
-PINAX_STRIPE_PUBLIC_KEY = 'pk_test_DP0VFicZeOIuYp7pbdTD7d0U'
-PINAX_STRIPE_SECRET_KEY = 'sk_test_UiWlP2LygwW3AydLAZqvjNrw'
+PINAX_STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", "your public key")
+PINAX_STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "your private key")
